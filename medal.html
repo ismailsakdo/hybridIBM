@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOI@INNOZILLA25 Certificate Download Portal</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Load Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Slate-50 background */
+        }
+        .cert-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(0);
+        }
+        .cert-card:hover {
+            box-shadow: 0 15px 30px -5px rgb(37 99 235 / 0.1), 0 8px 15px -8px rgb(37 99 235 / 0.1);
+            transform: translateY(-5px);
+            border-color: #3b82f6; /* Blue-500 */
+        }
+        .nav-link.active {
+            color: #2563eb; /* Blue-600 */
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- Sticky Header/Navigation -->
+    <header id="header" class="bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-extrabold text-slate-800">FOI<span class="text-blue-600">@INNOZILLA</span>25</h1>
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#categories" class="nav-link text-slate-600 font-medium hover:text-blue-600 active">Certificates</a>
+                <a href="#jury" class="nav-link text-slate-600 font-medium hover:text-blue-600">Jury Access</a>
+                <!-- Removed "My Download" button here -->
+            </div>
+             <button id="mobile-menu-button" class="md:hidden text-slate-800">
+                 <!-- Menu Icon SVG -->
+                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+             </button>
+        </nav>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 space-y-2 bg-white border-t border-slate-100">
+             <a href="#categories" class="block nav-link text-slate-600 font-medium hover:text-blue-600">Certificates</a>
+             <a href="#jury" class="block nav-link text-slate-600 font-medium hover:text-blue-600">Jury Access</a>
+             <!-- Removed "My Download" button from mobile menu here -->
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section: Welcome -->
+        <section id="hero" class="py-20 md:py-28 bg-white/70">
+            <div class="container mx-auto px-6 text-center max-w-4xl">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">
+                    FOI<span class="text-blue-600">@INNOZILLA25</span> Certificate Download Center
+                </h2>
+                <p class="mt-4 text-lg text-slate-600">
+                    Thank you for being part of our event! Please select your category below to download your official certificate.
+                </p>
+            </div>
+        </section>
+
+        <!-- Main Categories Section -->
+        <section id="categories" class="py-16 md:py-24">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold text-slate-800">Choose Your Role to Get Your Cert</h3>
+                    <p class="mt-2 text-md text-slate-500">All certificates are personalized and require validation upon download.</p>
+                </div>
+                
+                <!-- Category Grid (6 Main Categories) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <!-- Award Categories -->
+                    <div class="cert-card bg-white p-6 rounded-xl shadow-lg border-2 border-slate-200">
+                        <div class="text-4xl mb-4 text-yellow-600">⭐</div>
+                        <h4 class="text-xl font-bold text-slate-800">GOLD MEDALIST</h4>
+                        <p class="text-slate-500 mt-1 mb-4">Award Certificate</p>
+                        <button onclick="showDownloadMessage('Gold Medalist')" class="w-full bg-yellow-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-yellow-600 transition-colors">
+                            Download Award
+                        </button>
+                    </div>
+
+                    <div class="cert-card bg-white p-6 rounded-xl shadow-lg border-2 border-slate-200">
+                        <div class="text-4xl mb-4 text-slate-400">🥈</div>
+                        <h4 class="text-xl font-bold text-slate-800">SILVER MEDALIST</h4>
+                        <p class="text-slate-500 mt-1 mb-4">Award Certificate</p>
+                        <button onclick="showDownloadMessage('Silver Medalist')" class="w-full bg-slate-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-slate-600 transition-colors">
+                            Download Award
+                        </button>
+                    </div>
+
+                    <div class="cert-card bg-white p-6 rounded-xl shadow-lg border-2 border-slate-200">
+                        <div class="text-4xl mb-4 text-orange-600">🥉</div>
+                        <h4 class="text-xl font-bold text-slate-800">BRONZE MEDALIST</h4>
+                        <p class="text-slate-500 mt-1 mb-4">Award Certificate</p>
+                        <button onclick="showDownloadMessage('Bronze Medalist')" class="w-full bg-orange-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-orange-600 transition-colors">
+                            Download Award
+                        </button>
+                    </div>
+
+                    <!-- Appreciation & Attendance Categories -->
+                    <div class="cert-card bg-white p-6 rounded-xl shadow-lg border-2 border-slate-200">
+                        <div class="text-4xl mb-4 text-blue-600">🎤</div>
+                        <h4 class="text-xl font-bold text-slate-800">SPEAKER</h4>
+                        <p class="text-slate-500 mt-1 mb-4">Certificate of Appreciation</p>
+                        <button onclick="showDownloadMessage('Speaker')" class="w-full bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                            Download Cert.
+                        </button>
+                    </div>
+
+                    <div class="cert-card bg-white p-6 rounded-xl shadow-lg border-2 border-slate-200">
+                        <div class="text-4xl mb-4 text-indigo-600">🧠</div>
+                        <h4 class="text-xl font-bold text-slate-800">INNOVATION COMPETITION PARTICIPANT</h4>
+                        <p class="text-slate-500 mt-1 mb-4">Certificate of Appreciation</p>
+                        <button onclick="showDownloadMessage('Participant')" class="w-full bg-indigo-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-indigo-700 transition-colors">
+                            Download Cert.
+                        </button>
+                    </div>
+                    
+                    <div class="cert-card bg-white p-6 rounded-xl shadow-lg border-2 border-slate-200">
+                        <div class="text-4xl mb-4 text-green-600">🚶</div>
+                        <h4 class="text-xl font-bold text-slate-800">VISITOR</h4>
+                        <p class="text-slate-500 mt-1 mb-4">Certificate of Attendance</p>
+                        <button onclick="showDownloadMessage('Visitor')" class="w-full bg-green-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors">
+                            Download Cert.
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Jury Specific Access Section -->
+        <section id="jury" class="py-16 md:py-24 bg-blue-600/5">
+            <div class="container mx-auto px-6 max-w-4xl text-center">
+                <div class="bg-white p-8 rounded-xl shadow-2xl border-4 border-blue-600">
+                    <div class="text-5xl mb-4 text-blue-600"> gavel </div>
+                    <h3 class="text-3xl font-bold text-slate-800">Jury Specific Hall / Menu</h3>
+                    <p class="mt-4 text-lg text-slate-600">
+                        All judges and evaluators for the competition are required to access their specific certificate and menu via the dedicated Jury login portal.
+                        <strong class="font-semibold text-red-600 block mt-2">Please use the separate link provided to Juries.</strong>
+                    </p>
+                    <button onclick="showDownloadMessage('Jury')" class="mt-6 bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors shadow-xl shadow-blue-500/50">
+                        Go to Jury Access
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Custom Message Box for Placeholder/Errors -->
+        <div id="message-box" class="fixed inset-0 bg-slate-900 bg-opacity-70 hidden items-center justify-center z-[99]">
+            <div class="bg-white p-8 rounded-xl shadow-2xl max-w-sm w-full text-center">
+                <h4 id="message-title" class="text-2xl font-bold text-blue-600 mb-4">Certificate Download</h4>
+                <p id="message-text" class="text-slate-700 mb-6">This is a placeholder for the download functionality. You selected the 'Category' certificate.</p>
+                <button onclick="closeMessageBox()" class="bg-red-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-red-600 transition-colors">
+                    Close
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-sm text-slate-400">&copy; 2025 FOI@INNOZILLA25. All Rights Reserved. Universiti Sains Malaysia.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Custom Message Box Logic (Replaces alert()) ---
+        const messageBox = document.getElementById('message-box');
+        const messageTitle = document.getElementById('message-title');
+        const messageText = document.getElementById('message-text');
+
+        function showDownloadMessage(category) {
+            if (category === 'Jury') {
+                messageTitle.textContent = "Jury Access Required";
+                messageText.innerHTML = "You must log in through the **Jury Specific Hall** to download your Certificate of Appreciation and access evaluation menus.";
+            } else if (category === 'Participant' || category === 'Visitor' || category === 'Speaker') {
+                messageTitle.textContent = `${category} Certificate`;
+                messageText.innerHTML = `You have selected the **${category}** certificate. The download process will now begin after a brief authentication check.`;
+            } else {
+                messageTitle.textContent = `${category} Award Certificate`;
+                messageText.innerHTML = `Congratulations! You selected the **${category}** award. The download will start shortly.`;
+            }
+            
+            // Show the modal
+            messageBox.classList.remove('hidden');
+            messageBox.classList.add('flex');
+        }
+
+        function closeMessageBox() {
+            // Hide the modal
+            messageBox.classList.add('hidden');
+            messageBox.classList.remove('flex');
+        }
+
+        // --- Mobile Menu Toggle ---
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu when a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Intersection Observer for Active Nav Link (Kept for multi-section structure)
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('main section');
+            const header = document.getElementById('header');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: `-${header.offsetHeight}px 0px 0px 0px`,
+                threshold: 0.2
+            };
+
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+            
+            sections.forEach(section => {
+                sectionObserver.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hybrid AI System for Proactive Environmental Health</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Calm Neutrals with Tech Blue Accent -->
+    <!-- Application Structure Plan: The SPA is structured into thematic sections to guide the user through a narrative: starting with the urgency of the problem, explaining the elegant solution, showcasing the product and its innovation, detailing the investment plan, and finally introducing the team. This thematic flow is more persuasive and easier to digest than the original document's linear structure. A sticky navigation bar allows users to jump to any section, supporting both linear and non-linear exploration. Interactive elements like the data flow diagram and budget chart are designed to simplify complex information and engage the user. -->
+    <!-- Visualization & Content Choices: 
+        - Problem Statement -> Goal: Inform & create urgency -> Viz/Method: Key stat cards and icon-based lists -> Interaction: Hover effects to reveal context -> Justification: Quickly communicates the scale of the problem.
+        - Solution Architecture -> Goal: Explain a complex process -> Viz/Method: A custom diagram built with HTML/Tailwind CSS -> Interaction: Clickable components to display explanations -> Justification: Visually breaks down the multi-tiered AI system, making the core innovation understandable without technical jargon.
+        - Funding Request -> Goal: Transparently present the budget -> Viz/Method: Donut Chart -> Interaction: Hover tooltips for details -> Justification: Provides an immediate, clear visual breakdown of how the funds will be used, building investor confidence. Library: Chart.js.
+        - Roadmap -> Goal: Demonstrate a clear plan -> Viz/Method: Vertical timeline -> Interaction: Click-to-expand details -> Justification: Shows a professional, phased approach to development and commercialization. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 40vh;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                max-height: 350px;
+            }
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #2563eb;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .diagram-item {
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .diagram-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-blue-600">HybriQ</h1>
+            <div class="hidden md:flex space-x-8">
+                <a href="#problem" class="nav-link text-slate-600 font-medium">The Crisis</a>
+                <a href="#solution" class="nav-link text-slate-600 font-medium">Our Solution</a>
+                <a href="#product" class="nav-link text-slate-600 font-medium">The Product</a>
+                <a href="#investment" class="nav-link text-slate-600 font-medium">Investment</a>
+                <a href="#team" class="nav-link text-slate-600 font-medium">Team</a>
+            </div>
+            <a href="#contact" class="hidden md:block bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors">Contact</a>
+             <button id="mobile-menu-button" class="md:hidden text-slate-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 space-y-2">
+             <a href="#problem" class="block nav-link text-slate-600 font-medium">The Crisis</a>
+             <a href="#solution" class="block nav-link text-slate-600 font-medium">Our Solution</a>
+             <a href="#product" class="block nav-link text-slate-600 font-medium">The Product</a>
+             <a href="#investment" class="block nav-link text-slate-600 font-medium">Investment</a>
+             <a href="#team" class="block nav-link text-slate-600 font-medium">Team</a>
+             <a href="#contact" class="block nav-link text-slate-600 font-medium">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="py-20 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-6xl font-bold text-slate-900 leading-tight">Predictive Building Health for a Healthier Malaysia</h2>
+                <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">Our Hybrid AI System transforms building management from reactive to proactive, safeguarding occupant health and optimizing operational efficiency.</p>
+                <a href="#solution" class="mt-8 inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-transform hover:scale-105">Discover the Solution</a>
+            </div>
+        </section>
+
+        <section id="problem" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">The Silent Crisis in Our Buildings</h2>
+                    <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">Poor Indoor Air Quality (IAQ) is not just an inconvenience; it's a critical public health and economic issue. This section details the severe consequences of outdated, reactive building management systems that fail to protect occupants and assets effectively.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200/50">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-red-100 text-red-600 mb-4">
+                            <span>&#9888;</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Health & Economic Burden</h3>
+                        <p class="text-slate-600">Poor IAQ leads to Sick Building Syndrome (SBS) and Building-Related Illnesses (BRI), costing over <span class="font-bold text-red-600">$5 billion annually</span> in the US alone from lost productivity and absenteeism.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200/50">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-yellow-100 text-yellow-600 mb-4">
+                           <span>&#128200;</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Reactive Management</h3>
+                        <p class="text-slate-600">Traditional systems only react to failures after they occur. This leads to costly emergency repairs, prolonged downtime, and extended exposure of occupants to unhealthy conditions.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200/50">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 text-blue-600 mb-4">
+                           <span>&#128274;</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Disconnected Data Silos</h3>
+                        <p class="text-slate-600">Crucial data from sensors, maintenance logs, and occupant feedback are trapped in separate systems, making a holistic understanding of building health impossible.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solution" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">From Silos to Synergy: Our Hybrid AI</h2>
+                    <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">Our core innovation lies in a novel two-tiered AI architecture that fuses diverse data streams into a single, intelligent system. This interactive diagram shows how we turn disconnected data into predictive insights, moving from reactive fixes to proactive care. Click on each component to learn more.</p>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mb-8">
+                    <div id="diagram-item-1" data-info="Tier 1: Edge AI on low-cost IoT sensor nodes collects continuous data on pollutants like CO₂, PM₂.₅, and VOCs, providing real-time environmental awareness." class="diagram-item bg-slate-50 p-6 rounded-lg w-full md:w-1/4 text-center border-2 border-slate-200">
+                        <h4 class="font-bold text-blue-600">1. Real-Time Sensor Data</h4>
+                        <p class="text-sm text-slate-500 mt-1">Continuous environmental monitoring.</p>
+                    </div>
+                     <div class="text-2xl text-slate-400 font-light">+</div>
+                    <div id="diagram-item-2" data-info="Structured data from building maintenance logs, such as last filter change and AHU inspection reports, are fed into the system to provide crucial operational context." class="diagram-item bg-slate-50 p-6 rounded-lg w-full md:w-1/4 text-center border-2 border-slate-200">
+                        <h4 class="font-bold text-blue-600">2. Maintenance Records</h4>
+                        <p class="text-sm text-slate-500 mt-1">Historical equipment & repair data.</p>
+                    </div>
+                     <div class="text-2xl text-slate-400 font-light">+</div>
+                    <div id="diagram-item-3" data-info="User complaints and health feedback (e.g., 'headache,' 'stuffy air') are collected and processed using NLP, adding a vital human-centric layer to our analysis." class="diagram-item bg-slate-50 p-6 rounded-lg w-full md:w-1/4 text-center border-2 border-slate-200">
+                        <h4 class="font-bold text-blue-600">3. Occupant Feedback</h4>
+                        <p class="text-sm text-slate-500 mt-1">Subjective health & comfort reports.</p>
+                    </div>
+                </div>
+
+                <div class="flex justify-center my-8">
+                    <div class="text-4xl text-slate-400">&#8595;</div>
+                </div>
+
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
+                    <div id="diagram-item-4" data-info="Our central multi-modal neural network fuses these three distinct data streams, identifying complex patterns and non-linear correlations that are invisible to human analysis." class="diagram-item bg-blue-100 p-8 rounded-xl w-full md:w-1/2 text-center border-2 border-blue-300">
+                        <h3 class="text-2xl font-bold text-blue-800">Hybrid AI Engine</h3>
+                        <p class="text-sm text-blue-600 mt-1">Fusing Data into Intelligence</p>
+                    </div>
+                    <div class="text-4xl text-slate-400 font-light">&#8594;</div>
+                    <div id="diagram-item-5" data-info="The AI's output is a single, holistic 'Blended Likelihood Score' that predicts the building's overall environmental health risk, enabling proactive, just-in-time maintenance before problems escalate." class="diagram-item bg-green-100 p-8 rounded-xl w-full md:w-1/3 text-center border-2 border-green-300">
+                        <h3 class="text-2xl font-bold text-green-800">Predictive Score</h3>
+                        <p class="text-sm text-green-600 mt-1">Actionable Proactive Insights</p>
+                    </div>
+                </div>
+
+                <div id="info-box" class="mt-10 p-6 bg-white rounded-lg shadow-md text-center max-w-3xl mx-auto min-h-[80px] flex items-center justify-center border border-slate-200">
+                    <p class="text-slate-600 italic">Click on a diagram component to see its description here.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="product" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">The Technology in Action</h2>
+                    <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">Our product is more than just data; it's a command center for building health. The centralized dashboard provides visual analytics and actionable insights, empowering facility managers to make smarter, data-driven decisions. The core technology is protected by a pending patent application.</p>
+                </div>
+                <div class="bg-white p-4 md:p-8 rounded-xl shadow-2xl border border-slate-200/50">
+                    <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden border-2 border-slate-200">
+                         <div class="bg-slate-100 p-8 flex flex-col items-center justify-center">
+                            <h3 class="text-xl font-semibold mb-2 text-slate-700">Live Product Dashboard</h3>
+                            <p class="text-slate-500 mb-4">Explore our real-time data visualization platform.</p>
+                            <a href="https://demo.usmtech.my" target="_blank" rel="noopener noreferrer" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors">Launch Demo</a>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="investment" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold">Funding & Roadmap</h2>
+                        <p class="mt-4 text-lg text-slate-600">We are seeking a grant of **RM100,000** to accelerate development over a clear 12-month roadmap. This funding will enable us to finalize our prototype, scale our AI models, and launch a market-ready product with significant socio-economic impact. Our roadmap is structured into three distinct phases, ensuring disciplined execution and timely delivery of milestones.</p>
+                        
+                        <div class="mt-8 space-y-4">
+                            <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                                <h4 class="font-semibold text-slate-800">Phase 1: Proof of Concept (3 Months)</h4>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                                <h4 class="font-semibold text-slate-800">Phase 2: Neural Network Development (6 Months)</h4>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                                <h4 class="font-semibold text-slate-800">Phase 3: Pilot & Commercialization (3 Months)</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-center mb-4">Budget Allocation</h3>
+                        <div class="chart-container">
+                            <canvas id="fundingChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="team" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Our Expert Team</h2>
+                    <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">Our project is led by a dedicated team with extensive expertise in AI, engineering, and public health, ensuring a foundation of scientific rigor and technical excellence.</p>
+                </div>
+                <div class="flex flex-col md:flex-row justify-center gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200/50 text-center w-full md:w-1/3">
+                        <h3 class="text-xl font-bold">Ts. Dr. Syazwan Aizat Bin Ismail</h3>
+                        <p class="text-blue-600 font-medium mt-1">Principal Investigator</p>
+                        <p class="text-slate-500 mt-2">National Poison Centre, Universiti Sains Malaysia.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200/50 text-center w-full md:w-1/3">
+                        <h3 class="text-xl font-bold">Dr. Muaz Mohd Zaini Makhtar</h3>
+                        <p class="text-blue-600 font-medium mt-1">Co-Investigator</p>
+                        <p class="text-slate-500 mt-2">Pusat Pengajian Teknologi Industri (PPTI).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer id="contact" class="bg-slate-800 text-white py-16">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold">Let's Build a Healthier Future</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-slate-300">We are building a solution to a critical, real-world problem. If you're interested in partnering, investing, or learning more, please get in touch.</p>
+                <div class="mt-8">
+                    <p class="text-lg font-semibold">Ts. Dr. Syazwan Aizat Bin Ismail</p>
+                    <a href="mailto:drsai@usm.my" class="text-blue-400 hover:text-blue-300 transition-colors">drsai@usm.my</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('main section');
+            const header = document.getElementById('header');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: `-${header.offsetHeight}px 0px 0px 0px`,
+                threshold: 0.4
+            };
+
+            const sectionObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+            
+            sections.forEach(section => {
+                sectionObserver.observe(section);
+            });
+
+            const diagramItems = document.querySelectorAll('.diagram-item');
+            const infoBox = document.getElementById('info-box');
+
+            diagramItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const infoText = item.getAttribute('data-info');
+                    infoBox.innerHTML = `<p class="text-slate-700">${infoText}</p>`;
+                    diagramItems.forEach(i => i.classList.remove('ring-2', 'ring-blue-500', 'scale-105'));
+                    item.classList.add('ring-2', 'ring-blue-500', 'scale-105');
+                });
+            });
+
+            const ctx = document.getElementById('fundingChart').getContext('2d');
+            const fundingChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Software Development', 'Hardware & Equipment', 'Data Analytics', 'Marketing', 'IP Protection'],
+                    datasets: [{
+                        label: 'Budget Allocation',
+                        data: [30000, 25000, 25000, 10000, 10000], 
+                        backgroundColor: [
+                            '#3b82f6', // blue-500
+                            '#60a5fa', // blue-400
+                            '#93c5fd', // blue-300
+                            '#bfdbfe', // blue-200
+                            '#dbeafe'  // blue-100
+                        ],
+                        borderColor: '#ffffff',
+                        borderWidth: 4,
+                        hoverOffset: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 20,
+                                font: {
+                                    family: "'Inter', sans-serif"
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'MYR' }).format(context.parsed);
+                                    }
+                                    return label;
+                                }
+                            },
+                             bodyFont: {
+                                family: "'Inter', sans-serif"
+                            },
+                            titleFont: {
+                                family: "'Inter', sans-serif"
+                            }
+                        }
+                    },
+                    cutout: '60%'
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INNOZILLA 2025 Navigation Hub (Blue/Slate Theme)</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Load Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            /* Changed from #f7f7f7 to Slate-50 for consistency */
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Slate-50 */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Active Tab Button uses the main blue color */
+        .tab-button.active {
+            /* Changed from teal-600 (#0d9488) to blue-600 (#2563eb) */
+            background-color: #2563eb; 
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .accordion-header {
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow-y: auto; 
+            transition: max-height 0.6s ease-in-out, padding 0.6s ease-in-out;
+        }
+
+        /* Custom scrollbar for Competition Tab content (now Blue) */
+        .card-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        #competition .card-content::-webkit-scrollbar-thumb {
+            /* Changed from emerald-300 to blue-400 */
+            background-color: #60a5fa; 
+            border-radius: 4px;
+        }
+        #competition .card-content::-webkit-scrollbar-track {
+            /* Changed from emerald-50 to blue-50 */
+            background: #eff6ff; 
+        }
+
+        /* Custom scrollbar for Jury Tab content (now Indigo) */
+        #jury .card-content::-webkit-scrollbar-thumb {
+            /* Changed from cyan-400 to indigo-300 */
+            background-color: #a5b4fc; 
+            border-radius: 4px;
+        }
+        #jury .card-content::-webkit-scrollbar-track {
+            /* Changed from cyan-50 to indigo-50 */
+            background: #eef2ff; 
+        }
+
+    </style>
+</head>
+<body class="p-4 text-slate-800">
+
+    <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-2xl">
+        <!-- Header uses Dark Blue (Primary Brand Color) -->
+        <header class="p-6 bg-blue-700 rounded-t-xl">
+            <h1 class="text-3xl font-bold text-white tracking-tight">INNOZILLA 2025: Navigation Hub</h1>
+            <!-- Changed from teal-200 to blue-200 -->
+            <p class="text-blue-200 mt-1">Select your role or path below to view the detailed instructions and system guide.</p>
+        </header>
+
+        <!-- Main Menu Tabs -->
+        <div class="flex flex-col sm:flex-row p-4 border-b border-gray-100 bg-gray-50 rounded-b-xl sm:rounded-none">
+            <button
+                class="tab-button active flex-1 p-3 m-1 rounded-lg text-lg font-semibold transition duration-200 hover:bg-blue-600 hover:text-white"
+                data-tab="competition">
+                1) SDG INNOVATION COMPETITION
+            </button>
+            <button
+                class="tab-button flex-1 p-3 m-1 rounded-lg text-lg font-semibold text-gray-700 transition duration-200 hover:bg-blue-600 hover:text-white"
+                data-tab="jury">
+                2) JURY & HEAD JURY
+            </button>
+        </div>
+
+        <!-- Tab Content Containers -->
+        <div class="p-6">
+
+            <!-- COMPETITION Tab Content (Blue Theme) -->
+            <div id="competition" class="tab-content active space-y-4">
+                <!-- Changed from emerald-800 to blue-800 -->
+                <h2 class="text-2xl font-bold text-blue-800 border-b pb-2 mb-4">Participant, Speaker & Visitor Guide</h2>
+
+                <!-- Accordion for Getting Started -->
+                <!-- Changed from emerald-50 to blue-50 -->
+                <div class="accordion-item bg-blue-50 rounded-lg shadow-md overflow-hidden">
+                    <!-- Changed from emerald-900 and emerald-200 to blue-900 and blue-200 -->
+                    <div class="accordion-header flex justify-between items-center p-4 text-lg font-bold text-blue-900 border-b border-blue-200">
+                        <span>🚀 Getting Started & Registration (All Users)</span>
+                        <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="accordion-content card-content px-4 py-3 bg-white text-gray-700">
+                        <ol class="list-decimal list-inside space-y-3">
+                            <li>
+                                <strong class="font-bold">Registration into the System:</strong>
+                                <p class="text-sm ml-2">If you are a first-time user, go to the main website: <a id="mainWebsiteLink" href="#" target="_blank" class="text-blue-600 font-medium hover:underline"></a> and click <strong class="font-bold">LOGIN</strong> (Top Right) followed by <strong class="font-bold">CREATE NEW ACCOUNT</strong>. Complete the form and await email approval from the Admin.</p>
+                            </li>
+                            <li>
+                                <strong class="font-bold">Navigating to the Innovation Course:</strong>
+                                <p class="text-sm ml-2">After logging in, scroll to the bottom of the page and select the course menu: <strong class="font-bold">FOI@INNOZILLA2025</strong>. Alternatively, use the direct link below (for Participants/Speakers/Visitors):</p>
+                                <!-- Changed from bg-emerald-600/700 to bg-blue-600/700 -->
+                                <a id="courseLinkButtonComp" href="#" target="_blank" class="mt-2 inline-block bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-150 shadow-md">
+                                    Go Directly to Competition Course
+                                </a>
+                            </li>
+                            <li>
+                                <strong class="font-bold">Enrolment Keys (User Access Code):</strong>
+                                <p class="text-sm ml-2">You must enter a specific Enrolment Key to access content relevant to your role. Click <strong class="font-bold">ENROL NOW</strong> after entering the correct key:</p>
+                                <ul class="list-disc list-inside ml-4 mt-1 text-xs font-mono">
+                                    <li><strong class="font-bold">Innovation Competition:</strong> <span class="text-red-600 font-bold" contenteditable="true">Participant2025!</span></li>
+                                    <li><strong class="font-bold">Speaker:</strong> <span class="text-red-600 font-bold" contenteditable="true">Speaker2025!</span></li>
+                                    <li><strong class="font-bold">Visitor:</strong> <span class="text-red-600 font-bold" contenteditable="true">Visitor2025!</span></li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Accordion for Competition Submission -->
+                <!-- Changed from emerald-50 to blue-50 -->
+                <div class="accordion-item bg-blue-50 rounded-lg shadow-md overflow-hidden">
+                    <!-- Changed from emerald-900 and emerald-200 to blue-900 and blue-200 -->
+                    <div class="accordion-header flex justify-between items-center p-4 text-lg font-bold text-blue-900 border-b border-blue-200">
+                        <span>🏆 Competition Submission Guide</span>
+                        <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="accordion-content card-content px-4 py-3 bg-white text-gray-700">
+                        <p class="mb-2">Follow these steps for the Innovation Competition submission (must be in the <strong class="font-bold">Innovation Competition</strong> group):</p>
+                        <ol class="list-decimal list-inside space-y-2 text-sm">
+                            <li>Click <strong class="font-bold">SUBMIT YOUR INNOVATION</strong> (choose your category: Professional / Student).</li>
+                            <li>Click <strong class="font-bold">ADD SUBMISSION</strong>.</li>
+                            <li><strong class="font-bold">Critical:</strong> You must submit your information <strong class="font-bold">LINE BY LINE</strong> (press ENTER after each line) into the provided submission box. Your final submission must consist of <strong class="font-bold">8 lines</strong>:
+                                <ul class="list-disc list-inside ml-4 mt-1 text-xs">
+                                    <li><strong class="font-bold">Line 1:</strong> PROJECT TITLE (Long)</li>
+                                    <li><strong class="font-bold">Line 2:</strong> PROBLEM STATEMENT (maximum of 100 words)</li>
+                                    <li><strong class="font-bold">Line 3:</strong> INNOVATIVE SOLUTION (maximum of 100 words)</li>
+                                    <li><strong class="font-bold">Line 4:</strong> INNOVATION PHOTO (Google Drive Share Link - <strong class="font-bold">Ensure viewable!</strong>)</li>
+                                    <li><strong class="font-bold">Line 5:</strong> INNOVATION VIDEO (YouTube Unlisted Link)</li>
+                                    <li><strong class="font-bold">Line 6:</strong> PROJECT ABSTRACT (Upload PDF/DOC file)</li>
+                                    <li><strong class="font-bold">Line 7:</strong> YOUR NAME / TEAM MEMBERS (IF ANY) – INCLUDING TITLE</li>
+                                    <li><strong class="font-bold">Line 8:</strong> YOUR EMAIL</li>
+                                </ul>
+                            </li>
+                            <li>When complete, click <strong class="font-bold">SAVE CHANGES</strong>. You can Edit/Delete before the submission deadline.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Accordion for Speaker Submission -->
+                <!-- Changed from emerald-50 to blue-50 -->
+                <div class="accordion-item bg-blue-50 rounded-lg shadow-md overflow-hidden">
+                    <!-- Changed from emerald-900 and emerald-200 to blue-900 and blue-200 -->
+                    <div class="accordion-header flex justify-between items-center p-4 text-lg font-bold text-blue-900 border-b border-blue-200">
+                        <span>🎤 Speaker Profile Submission</span>
+                        <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="accordion-content card-content px-4 py-3 bg-white text-gray-700">
+                        <p class="mb-2">Follow these steps (must be in the <strong class="font-bold">Speaker</strong> group):</p>
+                        <ol class="list-decimal list-inside space-y-2 text-sm">
+                            <li>Click the <strong class="font-bold">SPEAKER SUBMISSION</strong> button.</li>
+                            <li>Click <strong class="font-bold">SUBMIT</strong>.</li>
+                            <li>Submit your profile information <strong class="font-bold">LINE BY LINE</strong> (press ENTER after each line). Your submission must consist of <strong class="font-bold">5 lines</strong>:
+                                <ul class="list-disc list-inside ml-4 mt-1 text-xs">
+                                    <li><strong class="font-bold">Line 1:</strong> NAME WITH TITLE</li>
+                                    <li><strong class="font-bold">Line 2:</strong> ORGANIZATION</li>
+                                    <li><strong class="font-bold">Line 3:</strong> YOUR TITLE OF PRESENTATION</li>
+                                    <li><strong class="font-bold">Line 4:</strong> YOUR BIBLIOGRAPHY (Brief Bio)</li>
+                                    <li><strong class="font-bold">Line 5:</strong> PROFESSIONAL PHOTO (Google Drive Share Link - <strong class="font-bold">Ensure viewable!</strong>)</li>
+                                </ul>
+                            </li>
+                            <li>Click <strong class="font-bold">SAVE CHANGES</strong>.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                 <!-- Accordion for Visitor System Use -->
+                <!-- Changed from emerald-50 to blue-50 -->
+                <div class="accordion-item bg-blue-50 rounded-lg shadow-md overflow-hidden">
+                    <!-- Changed from emerald-900 and emerald-200 to blue-900 and blue-200 -->
+                    <div class="accordion-header flex justify-between items-center p-4 text-lg font-bold text-blue-900 border-b border-blue-200">
+                        <span>👀 Visitor System Use</span>
+                        <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="accordion-content card-content px-4 py-3 bg-white text-gray-700">
+                        <p class="text-sm">Visitors (enrolled with the <strong class="font-bold">Visitor</strong> key) can use the system to:</p>
+                        <ul class="list-disc list-inside ml-4 mt-2 text-sm space-y-1">
+                            <li><strong class="font-bold">Browse Announcements:</strong> Check the <strong class="font-bold">ANNOUNCEMENT</strong> section for schedule changes, event updates, and prize ceremony details.</li>
+                            <li><strong class="font-bold">View Public Abstracts:</strong> Access public facing innovation abstracts and profiles shared by participants and speakers (if permission is granted by the organizers).</li>
+                            <li><strong class="font-bold">Access Live Streams/Recordings:</strong> Access links to live-streamed presentations and recordings if provided in the course resources.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JURY Tab Content (Indigo Theme - Secondary Accent) -->
+            <div id="jury" class="tab-content space-y-4">
+                <!-- Changed from cyan-800 to indigo-800 -->
+                <h2 class="text-2xl font-bold text-indigo-800 border-b pb-2 mb-4">Jury & Head Jury Guide</h2>
+
+                <!-- Accordion for Jury Enrolment -->
+                <!-- Changed from cyan-50 to indigo-50 -->
+                <div class="accordion-item bg-indigo-50 rounded-lg shadow-md overflow-hidden">
+                    <!-- Changed from cyan-900 and cyan-200 to indigo-900 and indigo-200 -->
+                    <div class="accordion-header flex justify-between items-center p-4 text-lg font-bold text-indigo-900 border-b border-indigo-200">
+                        <span>🔑 Jury Enrolment & Course Access</span>
+                        <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="accordion-content card-content px-4 py-3 bg-white text-gray-700">
+                        <p class="mb-2 text-sm">Follow the initial <strong class="font-bold">Registration and Navigation</strong> steps in the *SDG INNOVATION COMPETITION* tab. Then, use the dedicated course link and official Jury Enrolment Key:</p>
+                        
+                        <div class="mt-3 space-y-2">
+                            <!-- Changed from cyan-700 to indigo-700 -->
+                            <p class="font-semibold text-indigo-700">Direct Course Link (Jury Only):</p>
+                            <!-- Changed from bg-cyan-600/700 to bg-indigo-600/700 -->
+                            <a id="courseLinkButtonJury" href="#" target="_blank" class="block text-center bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-indigo-700 transition duration-150 shadow-md">
+                                Go Directly to Jury Assessment Course
+                            </a>
+                        </div>
+
+                        <!-- Changed from cyan-700 and cyan-100 to indigo-700 and indigo-100 -->
+                        <p class="mt-4 mb-2 text-sm font-semibold text-indigo-700">Enrolment Key:</p>
+                        <p class="text-center py-2 bg-indigo-100 rounded-md font-mono text-indigo-700 text-lg">
+                            <span class="text-red-600 font-bold" contenteditable="true">Jury2025!</span>
+                        </p>
+                        <p class="mt-2 text-xs text-center text-gray-500">*(Please ensure you obtain the official key from the secretariat.)*</p>
+                    </div>
+                </div>
+
+                <!-- Accordion for Jury System Use -->
+                <!-- Changed from cyan-50 to indigo-50 -->
+                <div class="accordion-item bg-indigo-50 rounded-lg shadow-md overflow-hidden">
+                    <!-- Changed from cyan-900 and cyan-200 to indigo-900 and indigo-200 -->
+                    <div class="accordion-header flex justify-between items-center p-4 text-lg font-bold text-indigo-900 border-b border-indigo-200">
+                        <span>⚖️ Jury System Usage & Assessment</span>
+                        <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="accordion-content card-content px-4 py-3 bg-white text-gray-700">
+                        <ol class="list-decimal list-inside space-y-3 text-sm">
+                            <li>
+                                <strong class="font-bold">Access the Grading Interface:</strong> Navigate to the <strong class="font-bold">Innovation Competition</strong> activity within the course to view assigned submissions.
+                            </li>
+                            <li>
+                                <strong class="font-bold">(Head Jury Only) Submission Allocation:</strong>
+                                <p class="ml-2 text-xs bg-yellow-50 p-2 rounded-md border border-yellow-200 mt-1">
+                                    Click <strong class="font-bold">SWITCH TO NEXT PHASE</strong> (if required) and then <strong class="font-bold">ALLOCATE SUBMISSION</strong> to assign specific entries to respective jury members based on expertise/field.
+                                </p>
+                            </li>
+                            <li>
+                                <strong class="font-bold">Evaluation:</strong> Click on the submission title to review the project details (the 8 lines of text, photo link, video link).
+                            </li>
+                            <li>
+                                <strong class="font-bold">Entering Marks:</strong> Click the <strong class="font-bold">Grade/View Mark</strong> button to access the rubric and input your scores. You are mandated to <strong class="font-bold">EVALUATE MINIMUM OF 10 SUBMISSIONS</strong>.
+                            </li>
+                            <li>
+                                <strong class="font-bold">On-Site Re-Assessment:</strong> During the event, you can click <strong class="font-bold">RE-ASSESS</strong> to adjust marks if needed after meeting the participant. Always click <strong class="font-bold">SAVE AND CONTINUE</strong> to record your updated evaluation.
+                            </li>
+                            <li>
+                                <strong class="font-bold">(Head Jury Only) Finalizing Grades:</strong>
+                                <p class="ml-2 text-xs bg-yellow-50 p-2 rounded-md border border-yellow-200 mt-1">
+                                    Once all marks are in, the Head Jury must click <strong class="font-bold">RE-CALCULATE GRADES</strong> and then <strong class="font-bold">SWITCH TO THE NEXT PHASE</strong> and <strong class="font-bold">CONTINUE</strong> to finalize the competition results for the category.
+                                </p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="p-4 text-center text-xs text-gray-500 border-t bg-gray-50 rounded-b-xl">
+            FOI@INNOZILLA 2025 | SDG INNOVATION COMPETITION - All content and links are editable by the user.
+        </footer>
+    </div>
+
+    <script>
+        // =============================================================
+        // === CORE CONFIGURATION: EDIT THESE URLs FOR EASY MANAGEMENT ===
+        // =============================================================
+        const MAIN_WEBSITE_URL = 'https://foi.usm.my'; 
+        // URL for Participants, Speakers, and Visitors
+        const COMPETITION_COURSE_ENTRY_URL = 'https://foi.usm.my/course/participant'; 
+        // URL for Jury and Head Jury (specific course for assessment)
+        const JURY_COURSE_ENTRY_URL = 'https://foi.usm.my/course/jury_assessment'; 
+        // =============================================================
+
+        function initializeLinks() {
+            const websiteLink = document.getElementById('mainWebsiteLink');
+            const courseLinkButtonComp = document.getElementById('courseLinkButtonComp');
+            const courseLinkButtonJury = document.getElementById('courseLinkButtonJury');
+
+            if (websiteLink) {
+                websiteLink.href = MAIN_WEBSITE_URL;
+                websiteLink.textContent = MAIN_WEBSITE_URL;
+            }
+            if (courseLinkButtonComp) {
+                courseLinkButtonComp.href = COMPETITION_COURSE_ENTRY_URL;
+            }
+            if (courseLinkButtonJury) {
+                courseLinkButtonJury.href = JURY_COURSE_ENTRY_URL;
+            }
+        }
+
+        function setupTabs() {
+            const tabs = document.querySelectorAll('.tab-button');
+            const contents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Deactivate all
+                    tabs.forEach(t => t.classList.remove('active', 'text-white', 'text-gray-700'));
+                    contents.forEach(c => c.classList.remove('active'));
+
+                    // Set text color for inactive state
+                    tabs.forEach(t => {
+                        if (!t.classList.contains('active')) {
+                            t.classList.add('text-gray-700');
+                        }
+                    });
+
+                    // Activate selected tab
+                    const targetId = tab.getAttribute('data-tab');
+                    const targetContent = document.getElementById(targetId);
+
+                    tab.classList.add('active');
+                    tab.classList.remove('text-gray-700'); // Ensure active tab has white text
+
+                    if (targetContent) {
+                        targetContent.classList.add('active');
+                    }
+                });
+            });
+            // Initial load state fix: ensure text color is correct
+            tabs.forEach(t => {
+                if (!t.classList.contains('active')) {
+                    t.classList.add('text-gray-700');
+                }
+            });
+        }
+
+        function setupAccordions() {
+            const items = document.querySelectorAll('.accordion-item');
+
+            items.forEach(item => {
+                const header = item.querySelector('.accordion-header');
+                const content = item.querySelector('.accordion-content');
+                const icon = header.querySelector('svg');
+                
+                // Determine color classes based on parent tab: Blue for Competition, Indigo for Jury
+                const isCompetition = item.closest('#competition');
+                // Updated classes to use blue/indigo
+                const activeBgClass = isCompetition ? 'bg-blue-100' : 'bg-indigo-100';
+
+                // Initial Open State for the first item of the Competition tab
+                const isGettingStarted = isCompetition && item.querySelector('span').textContent.includes('Getting Started');
+                if (isGettingStarted) {
+                    content.style.maxHeight = "1000px"; 
+                    content.style.paddingTop = "0.75rem";
+                    content.style.paddingBottom = "0.75rem";
+                    icon.classList.add('rotate-180');
+                    header.classList.add(activeBgClass);
+                }
+
+
+                header.addEventListener('click', () => {
+                    const isOpen = content.style.maxHeight !== '0px' && content.style.maxHeight !== '';
+
+                    // Close all others in the same tab
+                    const parentContainer = item.closest('.tab-content');
+                    parentContainer.querySelectorAll('.accordion-item').forEach(otherItem => {
+                        const otherContent = otherItem.querySelector('.accordion-content');
+                        const otherIcon = otherItem.querySelector('svg');
+                        const otherHeader = otherItem.querySelector('.accordion-header');
+                        // Use the updated class check for the other items
+                        const otherActiveBgClass = otherItem.closest('#competition') ? 'bg-blue-100' : 'bg-indigo-100';
+
+                        if (otherItem !== item && (otherContent.style.maxHeight !== '0px' && otherContent.style.maxHeight !== '')) {
+                            // Close other item: Set to actual height first, then collapse to 0
+                            otherContent.style.maxHeight = otherContent.scrollHeight + "px"; 
+                            setTimeout(() => { 
+                                otherContent.style.maxHeight = '0';
+                                otherContent.style.paddingTop = "0px";
+                                otherContent.style.paddingBottom = "0px";
+                            }, 10);
+
+                            otherIcon.classList.remove('rotate-180');
+                            otherHeader.classList.remove(otherActiveBgClass);
+                        }
+                    });
+
+                    // Toggle the clicked one
+                    if (isOpen) {
+                        // Close: Set to actual height first, then collapse to 0
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        setTimeout(() => { 
+                            content.style.maxHeight = '0';
+                            content.style.paddingTop = "0px";
+                            content.style.paddingBottom = "0px";
+                        }, 10);
+                        
+                        icon.classList.remove('rotate-180');
+                        header.classList.remove(activeBgClass);
+                    } else {
+                        // Open: Use large value to ensure all content is visible, enabling scroll if needed
+                        content.style.maxHeight = "1000px"; 
+                        content.style.paddingTop = "0.75rem";
+                        content.style.paddingBottom = "0.75rem";
+                        icon.classList.add('rotate-180');
+                        header.classList.add(activeBgClass);
+                    }
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeLinks(); 
+            setupTabs();
+            setupAccordions();
+        });
+    </script>
+</body>
+</html>

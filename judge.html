@@ -1,0 +1,222 @@
+<style>
+    /* General Container and Text Styles */
+    .rubric-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 20px;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        color: #333;
+    }
+    .rubric-header {
+        text-align: center;
+        color: #004b8d;
+        border-bottom: 3px solid #f3c70c;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        font-size: 1.8em;
+    }
+    .rubric-section-title {
+        color: #008000;
+        font-size: 1.4em;
+        margin-top: 25px;
+        border-bottom: 1px dashed #ddd;
+        padding-bottom: 5px;
+    }
+    
+    /* Table Styles */
+    .rubric-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9em;
+        margin-top: 15px;
+    }
+    .rubric-table th, .rubric-table td {
+        border: 1px solid #ccc;
+        padding: 8px 10px;
+        vertical-align: top;
+        line-height: 1.4;
+    }
+    .rubric-table th {
+        background-color: #f0f4f8;
+        color: #222;
+        font-weight: 700;
+        text-align: center;
+    }
+    .rubric-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .score-col {
+        width: 10%;
+        text-align: center;
+        background-color: #e6f0ff;
+    }
+    .score-final-col {
+        width: 10%;
+        text-align: center;
+        background-color: #cce0ff;
+    }
+    .criteria-col {
+        width: 15%;
+        font-weight: bold;
+        text-align: left;
+    }
+    .descriptor-col {
+        width: 20%;
+        font-size: 0.85em;
+    }
+    .descriptor-col:first-of-type {
+        font-weight: normal;
+    }
+    .checklist-items {
+        font-weight: bold;
+        margin-top: 5px;
+        color: #555;
+    }
+</style>
+
+<div class="rubric-container">
+    <div class="rubric-header">
+        Sport Innovation Challenge 2025: Evaluation Rubric
+        <p style="font-size: 0.6em; color: #555; margin-top: 5px;">Category: Professional (Academia, Industry, TVET, College)</p>
+    </div>
+
+    <div class="rubric-section-title">Section A: Core Assessment (Weighted Criteria)</div>
+
+    <table class="rubric-table">
+        <thead>
+            <tr>
+                <th class="criteria-col" rowspan="2">Criteria & Weight</th>
+                <th class="descriptor-col">0 (Poor)</th>
+                <th class="descriptor-col">1 (Fair)</th>
+                <th class="descriptor-col">2 (Good)</th>
+                <th class="descriptor-col">3 (Excellent)</th>
+                <th class="score-col">Score = (Criteria/100) x Z (score)</th>
+                <th class="score-final-col">Total Mark = Score/3 x 100</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="criteria-col">
+                    1. Novelty (20%)
+                    <div class="checklist-items">Judge Checklist: IP & Publication Status</div>
+                </td>
+                <td class="descriptor-col">Not unique. Minimal originality and heavily derivative of existing solutions. No IP filing. No publication.</td>
+                <td class="descriptor-col">Some elements differentiate it from existing ideas, but lack of significant innovation. Copyright filed/granted or Conference proceedings/Book chapter published.</td>
+                <td class="descriptor-col">Moderately unique. Offers some novel features, but still somewhat similar to existing concepts. Patent/ID filed/granted or Scopus indexed journal publication.</td>
+                <td class="descriptor-col">Highly unique. Demonstrates exceptional creativity, significantly divergent from existing solutions. Utility Patent/ID granted or ISI (WOS) indexed journal publication.</td>
+                <td class="score-col" rowspan="4"></td>
+                <td class="score-final-col" rowspan="4"></td>
+            </tr>
+
+            <tr>
+                <td class="criteria-col">
+                    2. Applicability & Impact towards SDG (15%)
+                    <div class="checklist-items">Judge Checklist: Problem/Solution & Prototype</div>
+                </td>
+                <td class="descriptor-col">
+                    The invention's practical use in sports is unclear. Negligible impact on SDG. No prototype.
+                    <br><br>Poor quality patent search report (lens.org).
+                </td>
+                <td class="descriptor-col">
+                    Partially effective resolution with limited sports sector impact. Minimal positive impact on selected SDG. Beta version prototype available.
+                    <br><br>Basic patent search report with some relevant information.
+                </td>
+                <td class="descriptor-col">
+                    Moderately effective resolution with noticeable impact on the sports industry/community. Moderate positive impact on several SDG. Minimal Viable Product (MVP) prototype available.
+                    <br><br>Adequate patent search report covering essential aspects.
+                </td>
+                <td class="descriptor-col">
+                    Highly effective resolution with significant impact on sports performance/health. Outstanding positive impact, contributing significantly to SDG achievement. Prototype ready for market fit.
+                    <br><br>High-quality patent search report with thorough analysis.
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="criteria-col">
+                    3. Technology Readiness Level (TRL) (15%)
+                    <div class="checklist-items">Judge Checklist: Research Grants, Collaboration, Field Validation</div>
+                </td>
+                <td class="descriptor-col">
+                    TRL 1-2 (Basic principle or Concept formulation). Technology research; pure science begins translation to R&D.
+                    <br><br>No research grant or industry collaboration (No MoA/MoU/LoI/RCA).
+                </td>
+                <td class="descriptor-col">
+                    TRL 3-4 (Experimental Proof of Concept or Lab Validation). Start active R&D; ready to begin bridge for tech transition. Prototype shows some functionality but has issues.
+                    <br><br>PRGS grant or LoI present.
+                </td>
+                <td class="descriptor-col">
+                    TRL 5-7 (Validation/Demonstration in real environment). Ready to enter system development. Prototype is satisfactory in functionality and usability.
+                    <br><br>TED 1, MyLAB, or Industrial grant/MoU present.
+                </td>
+                <td class="descriptor-col">
+                    TRL 7-9 (System complete/qualified or proven). Ready for full-rate operation; compliant and test complete. Prototype excels in functionality, usability, and reliability.
+                    <br><br>TED 2, FRGS, or MoA present.
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="criteria-col">
+                    4. Commercial Potential (30%)
+                    <div class="checklist-items">Judge Checklist: Income, Spin-Off, Marketing, Packaging</div>
+                </td>
+                <td class="descriptor-col">
+                    Lack of understanding of the sports market or ineffective strategy. No plan or action taken towards commercialisation. Fail to engage the audience.
+                </td>
+                <td class="descriptor-col">
+                    Demonstrates some understanding of the target market and outlines a basic strategy. Some progress made (e.g., prototype development), but still in early stages.
+                </td>
+                <td class="descriptor-col">
+                    Clear understanding of the target sports market, competitive landscape, and effective strategy for market penetration. Significant progress made with clear milestones achieved.
+                </td>
+                <td class="descriptor-col">
+                    Robust market analysis, innovative business model, and strategic approach that positions the invention for significant market success. Ready for market launch/already commercialised, with successful revenue generation and scalability.
+                </td>
+            </tr>
+
+            <tr>
+                <td class="criteria-col">
+                    5. Presentation (20%)
+                    <div class="checklist-items">Judge Checklist: Poster, Video (5-8 min), Demonstration</div>
+                </td>
+                <td class="descriptor-col">Minimal creativity. Provides some basic information but lacks depth or clarity, leaving the audience with unanswered questions.</td>
+                <td class="descriptor-col">Demonstrates some creative elements that capture attention but lacks consistency and organization, requiring further clarification.</td>
+                <td class="descriptor-col">Presentation showcases outstanding creativity, utilising novel approaches to captivate and inspire the audience.</td>
+                <td class="descriptor-col">Presents complex concepts with clarity and depth, and offers valuable insights that leave the audience well-informed and educated.</td>
+                <td class="score-col"></td>
+                <td class="score-final-col"></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr style="background-color: #f8f8f8; font-weight: bold;">
+                <td colspan="5" style="text-align: right; padding-right: 20px;">Grand Total Mark (100%)</td>
+                <td class="score-final-col" colspan="2"></td>
+            </tr>
+        </tfoot>
+    </table>
+    
+    <div class="rubric-section-title">Award Thresholds</div>
+    <p>Using the specified marks threshold, the system determines the award category for each invention:</p>
+    <table class="rubric-table" style="width: 50%; margin-top: 10px;">
+        <thead>
+            <tr style="background-color: #f0f4f8;">
+                <th>Total Mark</th>
+                <th>Award</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="text-align: center;">&ge; 80%</td>
+                <td style="text-align: center; color: gold; font-weight: bold;">Gold</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">70% - 79%</td>
+                <td style="text-align: center; color: silver; font-weight: bold;">Silver</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">&le; 69%</td>
+                <td style="text-align: center; color: #b87333; font-weight: bold;">Bronze</td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>
